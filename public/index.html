@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Booking System</title>
+</head>
+<body>
+    <h1 id="title">Vaccination Booking System</h1>
+
+    <!-- Form to book appointment -->
+    <form id="appointmentForm" action="/appointment" method="POST">
+        <label id="nameLabel">Child's Name: </label>
+        <input type="text" name="name" required><br><br>
+        <label id="ageLabel">Child's Age: </label>
+        <input type="number" name="age" required><br><br>
+        <label id="dateLabel">Appointment Date: </label>
+        <input type="date" name="date" required><br><br>
+        <button type="submit" id="bookBtn">Book Appointment</button>
+    </form>
+    <br>
+
+    <a id="scheduleLink" href="/schedule">View Schedule</a>
+
+    <br><br>
+
+    <!-- Language Selector -->
+    <label for="language">Choose language:</label>
+    <select id="language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <!-- Add more languages as needed -->
+    </select>
+    <button id="translateBtn">Translate</button>
+
+    <script>
+        document.getElementById('translateBtn').addEventListener('click', () => {
+            const lang = document.getElementById('language').value;
+            window.location.href = `/?lang=${lang}`;
+        });
+    </script>
+</body>
+</html>
